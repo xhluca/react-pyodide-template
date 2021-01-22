@@ -1,6 +1,42 @@
-# Getting Started with Create React App
+# Getting started with pyodide in React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This repository serves as a template for using pyodide in React. It was created using `create-react-app`.
+
+## Quickstart
+
+To get started, simply run the lines below in your terminal:
+```
+git clone https://github.com/xhlulu/react-pyodide-template.git
+cd react-pyodide-template
+npm i
+npm start
+```
+
+When you are ready, you can serve the production build:
+```
+npm i -g serve
+serve -s build
+```
+
+## What you need to change
+
+Below are some files you might need to modify for your own project:
+
+1. [`src/python/script.py`](./src/python/script.py)\
+This file contains a toy Python function being defined and run inside your browser using `pyodide`. You can modify this to have more complex use cases (e.g. load standard libraries, `pandas`, `numpy`, etc.). For more details, [read the pyodide](https://pyodide.readthedocs.io/en/latest/index.html).
+
+2. [`src/App.js`](./src/App.js)\
+This file contains the code that reads a `python` script, load `pyodide` and run the script. It also renders a basic React app directly derived from `create-react-app`. It uses basic hooks like `useState` and `useEffect` and can be easily modified to your convenience.
+
+3. [`public/index.html`](./public/index.html)\
+The code in the html template was modified to load pyodide inside the `<head>`. If you wish to change the version of `pyodide` being loaded, you will have to modify the loading.
+
+4. [`src/App.css`](./src/App.css)\
+Modify this file or `index.css` in order to add custom styling to your application.
+
+5. [`src/App.test.js`](./src/App.test.js)\
+No test has been set up for this project. You will need to create your own tests and run them with `npm run test`.
+
 
 ## Available Scripts
 
@@ -14,10 +50,10 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `npm test`
+<!-- ### `npm test`
 
 Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information. -->
 
 ### `npm run build`
 
@@ -39,32 +75,11 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+
+## Acknowledgement
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
