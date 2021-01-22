@@ -1,22 +1,33 @@
+import { useEffect, useState } from 'react';
+import script from './python/script.py';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const [output, setOutput] = useState("(loading...)");
+
+  const runScript = code => {
+    window.pyodide.loadPackage([]).then(() => {
+      const output = window.pyodide.runPython(code);
+      setOutput(output);
+    })
+  }
+
+  useEffect(() => {
+    window.languagePluginLoader.then(() => {
+      fetch(script)
+        .then(src => src.text())
+        .then(runScript)
+    })
+  })
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          5 + 7 = {output}
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
     </div>
   );
