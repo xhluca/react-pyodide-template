@@ -23,7 +23,7 @@ serve -s build
 Below are some files you might need to modify for your own project:
 
 1. [`src/python/script.py`](./src/python/script.py)\
-This file contains a toy Python function being defined and run inside your browser using `pyodide`. You can modify this to have more complex use cases (e.g. load standard libraries, `pandas`, `numpy`, etc.). For more details, [read the pyodide](https://pyodide.readthedocs.io/en/latest/index.html).
+This file contains a toy Python function being defined and run inside your browser using `pyodide`. You can modify this to have more complex use cases (e.g. load standard libraries, `pandas`, `numpy`, etc.). For more details, [read the pyodide docs](https://pyodide.readthedocs.io/en/latest/index.html).
 
 2. [`src/App.js`](./src/App.js)\
 This file contains the code that reads a `python` script, load `pyodide` and run the script. It also renders a basic React app directly derived from `create-react-app`, which can be easily modified to your convenience. You will need to modify this file if you want to [access the Python scope from JS](https://pyodide.readthedocs.io/en/latest/usage/quickstart.html#accessing-python-scope-from-javascript) or [load packages](https://pyodide.readthedocs.io/en/latest/usage/loading-packages.html) like `numpy`, `pandas`, etc.
