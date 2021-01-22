@@ -18,6 +18,23 @@ npm i -g serve
 serve -s build
 ```
 
+## What just happened
+
+Now that you ran the app, you saw a `5+7=12` being computed (which took a few seconds, pretty slow for a JS app!).
+
+What happened behind the scene was: (1) we fetched a python script, (2) we ran it inside JavaScript using `pyodide`, and (3) we updated our React component using state hooks.
+
+Here's the code we just ran:
+```python
+def func():
+    return 5 + 7
+
+func()
+```
+
+It's pretty simple but you can run pretty advanced `python` code once you start loading packages like `numpy`, `pandas`, albeit at the cost of increased loading time.
+
+
 ## What you need to change
 
 Below are some files you might need to modify for your own project:
