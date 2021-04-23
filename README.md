@@ -20,9 +20,9 @@ serve -s build
 
 ## What just happened
 
-Now that you ran the app, you saw a `5+7=12` being computed (which took a few seconds, pretty slow for a JS app!).
+Now that you ran the app, you saw `5+7=12` being computed after a few seconds.
 
-What happened behind the scene was: (1) we fetched a python script, (2) we ran it inside JavaScript using `pyodide`, and (3) we updated our React component using state hooks.
+What happened behind the scene was: (1) we fetched a python script, (2) we ran it from the JavaScript scope using `pyodide`, and (3) we updated our React component using state hooks.
 
 Here's the code we just ran:
 ```python
@@ -32,26 +32,26 @@ def func():
 func()
 ```
 
-It's pretty simple but you can run pretty advanced `python` code once you start loading packages like `numpy`, `pandas`, albeit at the cost of increased loading time.
+It's very simple but you can run pretty advanced `python` code once you start loading packages like `numpy`, `pandas`, `scipy`, etc. albeit at the cost of increased loading time.
 
 
 ## What you need to change
 
 Below are some files you might need to modify for your own project:
 
-1. [`src/python/script.py`](./src/python/script.py)\
+1. 🐍 [`src/python/script.py`](./src/python/script.py)\
 This file contains a toy Python function being defined and run inside your browser using `pyodide`. You can modify this to have more complex use cases (e.g. load standard libraries, `pandas`, `numpy`, etc.). For more details, [read the pyodide docs](https://pyodide.readthedocs.io/en/latest/index.html).
 
-2. [`src/App.js`](./src/App.js)\
+2. ⚛️ [`src/App.js`](./src/App.js) \
 This file contains the code that reads a `python` script, load `pyodide` and run the script. It also renders a basic React app directly derived from `create-react-app`, which can be easily modified. You will need to modify this file if you want to [access the Python scope from JS](https://pyodide.readthedocs.io/en/latest/usage/quickstart.html#accessing-python-scope-from-javascript) or [load packages](https://pyodide.readthedocs.io/en/latest/usage/loading-packages.html) like `numpy`, `pandas`, etc.
 
-3. [`public/index.html`](./public/index.html)\
+3. 📇 [`public/index.html`](./public/index.html)\
 The code in the html template was modified to load pyodide inside the `<head>`. If you wish to change the version of `pyodide` being loaded, you will have to modify the loading.
 
-4. [`src/App.css`](./src/App.css)\
+4. 🎨 [`src/App.css`](./src/App.css)\
 Modify this file or `index.css` in order to add custom styling to your application.
 
-5. [`src/App.test.js`](./src/App.test.js)\
+5. 🧪 [`src/App.test.js`](./src/App.test.js)\
 No test has been set up for this project. You will need to create your own tests and run them with `npm run test`.
 
 
